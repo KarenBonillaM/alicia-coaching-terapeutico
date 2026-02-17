@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-light-gray: #f3f2f2;
+  --color-lila-hero: #ebebf2;
+  --color-brown-cta: #a08a8d;
+  --color-black-Headings: #3e3a3d;
+  --color-body-text: #6b6468;
+  --color-light-beige: #f6efea;
+  --color-beige-steps: #f2e7dc;
+  --color-light-brown: #e3d1bf;
+  --color-border-cards: #d0c795;
+  --font-logo: "mixta-didone", serif;
+  --font-body: "source-serif-4", serif;
+  --font-nav: "source-sans-3", sans-serif;
+}
