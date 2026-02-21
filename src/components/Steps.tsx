@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function Steps() {
   return (
-    <section className="grid grid-cols-2 grid-rows-3 h-screen bg-light-brown py-20">
-      <div>
+    <section className=" bg-beige-steps  grid justify-center py-20">
+      <div className="grid grid-cols-2 grid-rows-3 h-screen py-20">
         <div className="flex items-center col-start-2     border-l-3   border-light-beige">
           <div className="bg-light-beige rounded-full py-2 px-4">
             <span>1</span>
@@ -53,8 +53,8 @@ export default function Steps() {
           </div>
         </div>
       </div>
-      <div>
-        <button className="bg-brown-cta font-semibold text-white px-10 py-5">
+      <div className="m-auto">
+        <button className="bg-brown-cta hover:bg-brown-darker transition duration-300 focus:bg-brown-darker rounded font-semibold text-white px-10 py-5">
           Agenda tú cita
         </button>
       </div>

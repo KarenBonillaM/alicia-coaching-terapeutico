@@ -3,7 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 export default function Navbar() {
-  const [isToggleOpen, setIsToggleOpen] = useState(false)
+  const [isToggleOpen, setIsToggleOpen] = useState(false);
 
   return (
     <>
@@ -13,16 +13,14 @@ export default function Navbar() {
           <nav
             aria-label="main navigation"
             className="tracking-wider flex h-22 items-stretch justify-between font-medium text-blackHeadings"
-            role="navigation"
-          >
+            role="navigation">
             {/*      <!-- Brand logo --> */}
             <Link
               id="WindUI"
               aria-label="WindUI logo"
               aria-current="page"
-              className="font-logo text-black-Headings font-semibold flex items-center gap-2 py-3 text-2xl tracking-wide whitespace-nowrap focus:outline-none lg:flex-1"
-              href="/"
-            >
+              className="font-logo text-black-Headings font-semibold flex items-center gap-2 py-3 text-3xl tracking-wide whitespace-nowrap focus:outline-none lg:flex-1"
+              href="/">
               Alicia De La Torre
             </Link>
             {/*      <!-- Mobile trigger --> */}
@@ -36,21 +34,17 @@ export default function Navbar() {
             `}
               onClick={() => setIsToggleOpen(!isToggleOpen)}
               aria-expanded={isToggleOpen ? "true" : "false"}
-              aria-label="Toggle navigation"
-            >
+              aria-label="Toggle navigation">
               <div className="absolute w-6 transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
                 <span
                   aria-hidden="true"
-                  className="absolute block h-0.5 w-9/12 -translate-y-2 transform rounded-full bg-slate-900 transition-all duration-300"
-                ></span>
+                  className="absolute block h-0.5 w-9/12 -translate-y-2 transform rounded-full bg-slate-900 transition-all duration-300"></span>
                 <span
                   aria-hidden="true"
-                  className="absolute block h-0.5 w-6 transform rounded-full bg-slate-900 transition duration-300"
-                ></span>
+                  className="absolute block h-0.5 w-6 transform rounded-full bg-slate-900 transition duration-300"></span>
                 <span
                   aria-hidden="true"
-                  className="absolute block h-0.5 w-1/2 origin-top-left translate-y-2 transform rounded-full bg-slate-900 transition-all duration-300"
-                ></span>
+                  className="absolute block h-0.5 w-1/2 origin-top-left translate-y-2 transform rounded-full bg-slate-900 transition-all duration-300"></span>
               </div>
             </button>
             {/*      <!-- Navigation links --> */}
@@ -61,17 +55,14 @@ export default function Navbar() {
                 isToggleOpen
                   ? "visible opacity-100 backdrop-blur-sm"
                   : "invisible opacity-0"
-              }`}
-            >
-              <li role="none"   className="flex items-stretch">
+              }`}>
+              <li role="none" className="flex items-stretch">
                 <Link
                   role="menuitem"
                   aria-haspopup="false"
-                  className="font-nav text-black-Headings text-lg font-semibold flex items-center gap-2 py-4 transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
-                  href="javascript:void(0)"
-                >
-                  <span>Acerca
-                  </span>
+                  className="font-nav text-black-Headings text-2xl font-semibold flex items-center gap-2 py-4 transition-colors duration-300 hover:text-brown-cta focus:text-brown-darker focus:outline-none focus-visible:outline-none lg:px-8"
+                  href="/acerca">
+                  <span>Acerca</span>
                 </Link>
               </li>
               <li role="none" className="flex items-stretch font-body">
@@ -79,24 +70,26 @@ export default function Navbar() {
                   role="menuitem"
                   aria-current="page"
                   aria-haspopup="false"
-                  className="font-nav text-lg font-semibold flex items-center gap-2 py-4 transition-colors duration-300 text-black-Headings hover:text-emerald-600 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
-                  href="javascript:void(0)"
-                >
+                  className="font-nav text-2xl font-semibold flex items-center gap-2 py-4 transition-colors duration-300 text-black-Headings hover:text-brown-cta focus:text-brown-darker focus:outline-none focus-visible:outline-none lg:px-8"
+                  href="/contacto">
                   <span>Contacto</span>
                 </Link>
               </li>
             </ul>
             <div className="flex items-center px-6 ml-auto lg:ml-0 lg:p-0">
-              <button className="font-nav font-semibold inline-flex items-center justify-center h-10 gap-2 px-5 text-lg tracking-wide text-black-Headings transition duration-300 rounded shadow-md whitespace-nowrap bg-light-beige 
+              <Link role="menuitem" aria-current="page" href="/agenda">
+                <button
+                  className="font-nav font-semibold inline-flex items-center justify-center h-10 gap-2 px-6 text-2xl tracking-wide text-black-Headings transition duration-300 rounded shadow-md whitespace-nowrap bg-light-beige 
               border
-              border-light-brown shadow-emerald-200 hover:bg-emerald-600 hover:shadow-sm hover:shadow-emerald-200 focus:bg-emerald-700 focus:shadow-sm focus:shadow-emerald-200 focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-300 disabled:shadow-none">
-                <span>Agenda</span>
-              </button>
+              border-light-brown shadow-brown-shadow hover:bg-brown-cta hover:shadow-sm hover:shadow-brown-shadow hover:text-light-beige focus:bg-brown-darker focus:shadow-sm focus:shadow-brown-shadow focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-300 disabled:shadow-none">
+                  <span>Agenda</span>
+                </button>
+              </Link>
             </div>
           </nav>
         </div>
       </header>
       {/*<!-- End Navbar with CTA --> */}
     </>
-  )
+  );
 }

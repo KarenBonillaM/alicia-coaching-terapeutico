@@ -10,14 +10,12 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="preconnect" href="https://use.typekit.net" />
-        <link rel="stylesheet" href="https://use.typekit.net/iad4maq.css"/>
+        <link rel="stylesheet" href="https://use.typekit.net/iad4maq.css" />
       </head>
       <body className="bg-light-gray">
         <Navbar />
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
       </body>
     </html>
-  )
+  );
 }
