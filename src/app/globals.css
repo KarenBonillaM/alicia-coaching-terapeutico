@@ -3,6 +3,7 @@
 @theme {
   --color-light-gray: #f3f2f2;
   --color-lila-hero: #ebebf2;
+  --color-rosa-hero: #f2dfeb;
   --color-lila-darker: #a5a5c9;
   --color-brown-cta: #a08a8d;
   --color-brown-shadow: #bdabad;
@@ -18,6 +19,7 @@
   --color-beige-border: #e6decf;
   --color-light-brown: #e3d1bf;
   --color-border-cards: #d0c795;
+  --color-text-steps: #594f58;
   --color-span-text: #9a9498;
   --font-logo: "mixta-didone", serif;
   --font-body: "source-serif-4", serif;

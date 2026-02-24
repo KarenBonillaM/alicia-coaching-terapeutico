@@ -17,7 +17,7 @@ export default function Cards() {
               />
             </div>
             <div>
-              <h2 className="text-black-Headings text-xl font-semibold font-body text-center py-4">
+              <h2 className="text-black-Headings text-4xl font-semibold font-body text-center py-4">
                 Balance Emocional
               </h2>
               <p className="text-body-text">
@@ -37,7 +37,7 @@ export default function Cards() {
               />
             </div>
             <div>
-              <h2 className="text-black-Headings text-xl font-semibold font-body text-center py-4">
+              <h2 className="text-black-Headings text-4xl font-semibold font-body text-center py-4">
                 Autoestima
               </h2>
               <p className="text-body-text">
@@ -57,7 +57,7 @@ export default function Cards() {
               />
             </div>
             <div>
-              <h2 className="text-black-Headings text-xl font-semibold font-body text-center py-4">
+              <h2 className="text-black-Headings text-4xl font-semibold font-body text-center py-4">
                 Crecimiento Personal
               </h2>
               <p className="text-body-text">
