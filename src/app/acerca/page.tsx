@@ -4,15 +4,14 @@ export default function Acerca() {
   return (
     <section>
       <div className="container px-6 m-auto py-16">
-        <div className="grid grid-cols-4 justify-items-center gap-6 md:grid-cols-8">
-          <div className="col-span-4 lg:col-span-6 pt-16">
+        <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 items-start gap-6">
+          <div className="col-span-4 md:col-span-8 lg:col-span-6 flex justify-center pt-16">
             <Image
               src="/images/aliciaAcerca.png"
               alt="Alicia Coaching Terapéutico"
               width={600}
               height={700}
               priority
-              loading="eager"
               className="w-9/12 h-auto border border-lila-hero"
             />
           </div>

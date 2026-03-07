@@ -19,7 +19,7 @@ export default function Navbar() {
               id="WindUI"
               aria-label="WindUI logo"
               aria-current="page"
-              className="font-logo text-black-Headings font-semibold flex items-center gap-2 py-3 text-3xl tracking-wide whitespace-nowrap focus:outline-none lg:flex-1"
+              className="font-logo text-black-Headings font-semibold flex items-center gap-2 py-3 text-xl tracking-wide whitespace-nowrap focus:outline-none lg:flex-1 lg:text-3xl md:text-2xl"
               href="/">
               Alicia De La Torre
             </Link>
@@ -79,9 +79,9 @@ export default function Navbar() {
             <div className="flex items-center px-6 ml-auto lg:ml-0 lg:p-0">
               <Link role="menuitem" aria-current="page" href="/agenda">
                 <button
-                  className="font-nav font-semibold inline-flex items-center justify-center h-10 gap-2 px-6 text-2xl tracking-wide text-black-Headings transition duration-300 rounded shadow-md whitespace-nowrap bg-light-beige 
-              border
-              border-light-brown shadow-brown-shadow hover:bg-brown-cta hover:shadow-sm hover:shadow-brown-shadow hover:text-light-beige focus:bg-brown-darker focus:shadow-sm focus:shadow-brown-shadow focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-300 disabled:shadow-none">
+                  className="font-nav font-semibold inline-flex items-center justify-center h-10 gap-2 px-6 text-lg lg:text-2xl md:text-xl tracking-wide text-black-Headings transition duration-300 rounded shadow-md whitespace-nowrap bg-light-beige 
+                  border
+                 border-light-brown shadow-brown-shadow hover:bg-brown-cta hover:shadow-sm hover:shadow-brown-shadow hover:text-light-beige focus:bg-brown-darker focus:shadow-sm focus:shadow-brown-shadow focus-visible:outline-none disabled:cursor-not-allowed disabled:border-emerald-300 disabled:bg-emerald-300 disabled:shadow-none">
                   <span>Agenda</span>
                 </button>
               </Link>

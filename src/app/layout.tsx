@@ -10,6 +10,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/images/love.png" />
+        <title>Alicia De La Torre - Coaching Terapéutico para Niños</title>
         <link rel="preconnect" href="https://use.typekit.net" />
         <link rel="stylesheet" href="https://use.typekit.net/iad4maq.css" />
       </head>
