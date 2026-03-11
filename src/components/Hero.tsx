@@ -10,7 +10,7 @@ export default function Hero() {
             <p>Un espacio seguro para el</p>
             <p>bienestar de niños y adolescentes</p>
           </div>
-          <div className="justify-self-center">
+          <div className="grid justify-items-center">
             <Link href="/agenda">
               <button className="bg-brown-cta hover:bg-brown-darker transition duration-300 focus:bg-brown-darker rounded font-semibold text-white px-8 py-4 tracking-wide text-lg sm:text-xl">
                 Agenda tú cita

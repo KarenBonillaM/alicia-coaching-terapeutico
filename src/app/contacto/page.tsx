@@ -47,6 +47,11 @@ export default function Contacto() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!emailValidation) {
+      alert("Por favor, ingresa un correo electrónico válido");
+      return;
+    }
+
     setLoading(true);
 
     const response = await fetch("/api/contact", {
@@ -64,6 +69,7 @@ export default function Contacto() {
         email: "",
         message: "",
       });
+
       setTouched({
         name: false,
         email: false,

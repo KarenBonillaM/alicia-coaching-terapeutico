@@ -20,7 +20,7 @@ export default function InputField({
   textarea = false,
 }: InputFieldProps) {
   const baseStyle =
-    "peer w-full border-b px-4 text-sm outline-none outline-none transition-all";
+    "peer w-full border-b px-4 text-lg outline-none outline-none transition-all";
 
   const stateStyle = error
     ? "border-pink-500 text-pink-500"
@@ -41,7 +41,8 @@ export default function InputField({
         />
       ) : (
         <input
-          id={name === "email" ? "email" : "text"}
+          id={name}
+          type={name === "email" ? "email" : "text"}
           name={name}
           value={value}
           onChange={onChange}
@@ -52,8 +53,8 @@ export default function InputField({
         />
       )}
       <label
-        htmlFor={name === "email" ? "email" : "text"}
-        className={`absolute left-2 -top-2 z-10 px-2 text-xs transition-all ${
+        htmlFor={name}
+        className={`absolute left-2 -top-6 z-10 px-2 text-lg transition-all ${
           error ? "text-pink-500" : "text-slate-400"
         }`}>
         {label}
