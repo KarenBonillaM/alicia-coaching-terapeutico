@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import InputField from "../../components/InpurField";
+import InputField from "../../components/InputField";
 
 export default function Contacto() {
   const [form, setForm] = useState({
