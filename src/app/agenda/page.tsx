@@ -70,7 +70,7 @@ export default function Agenda() {
       {/* EXPECTATIONS */}
       <section className="grid items-center min-h-screen justify-items-center bg-beige-lighter-agenda border border-beige-border">
         <div>
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-black-Headings text-center pb-40">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-black-Headings text-center pb-40 pt-10 lg:pt-0">
             ¿Qué puedes esperar?
           </h2>
           <div className="container px-6 m-auto">

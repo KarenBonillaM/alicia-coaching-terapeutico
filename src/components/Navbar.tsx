@@ -4,6 +4,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
+  const closeMenu = () => setIsToggleOpen(false);
 
   return (
     <>
@@ -60,6 +61,7 @@ export default function Navbar() {
                 <Link
                   role="menuitem"
                   aria-haspopup="false"
+                  onClick={closeMenu}
                   className="font-nav text-black-Headings text-2xl font-semibold flex items-center gap-2 py-4 transition-colors duration-300 hover:text-brown-cta focus:text-brown-darker focus:outline-none focus-visible:outline-none lg:px-8"
                   href="/acerca">
                   <span>Acerca</span>
@@ -70,6 +72,7 @@ export default function Navbar() {
                   role="menuitem"
                   aria-current="page"
                   aria-haspopup="false"
+                  onClick={closeMenu}
                   className="font-nav text-2xl font-semibold flex items-center gap-2 py-4 transition-colors duration-300 text-black-Headings hover:text-brown-cta focus:text-brown-darker focus:outline-none focus-visible:outline-none lg:px-8"
                   href="/contacto">
                   <span>Contacto</span>
@@ -77,7 +80,11 @@ export default function Navbar() {
               </li>
             </ul>
             <div className="flex items-center px-6 ml-auto lg:ml-0 lg:p-0">
-              <Link role="menuitem" aria-current="page" href="/agenda">
+              <Link
+                role="menuitem"
+                aria-current="page"
+                onClick={closeMenu}
+                href="/agenda">
                 <button
                   className="font-nav font-semibold inline-flex items-center justify-center h-10 gap-2 px-6 text-lg lg:text-2xl md:text-xl tracking-wide text-black-Headings transition duration-300 rounded shadow-md whitespace-nowrap bg-light-beige 
                   border

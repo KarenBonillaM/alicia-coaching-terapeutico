@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import InputField from "../../components/InpurField";
 
 export default function Contacto() {
   const [form, setForm] = useState({
@@ -9,19 +10,44 @@ export default function Contacto() {
     message: "",
   });
 
+  const [touched, setTouched] = useState({
+    name: false,
+    email: false,
+    message: false,
+  });
+
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
-    setForm({
-      ...form,
+    setForm((prev) => ({
+      ...prev,
       [e.target.name]: e.target.value,
-    });
+    }));
+  };
+
+  const handleBlur = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setTouched((prev) => ({
+      ...prev,
+      [e.target.name]: true,
+    }));
+  };
+
+  const emailValidation = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email);
+
+  const hasError = (field: keyof typeof form) => {
+    if (!touched[field]) return false;
+    if (field === "email") return !emailValidation;
+    return !form[field];
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    console.log("Formulario enviado:", form);
+    setLoading(true);
 
     const response = await fetch("/api/contact", {
       method: "POST",
@@ -38,9 +64,15 @@ export default function Contacto() {
         email: "",
         message: "",
       });
+      setTouched({
+        name: false,
+        email: false,
+        message: false,
+      });
     } else {
       alert("Error al enviar el mensaje");
     }
+    setLoading(false);
   };
 
   return (
@@ -55,82 +87,53 @@ export default function Contacto() {
               <p>
                 Haz click aquí para{" "}
                 <a
-                  href="https://wa.me/4464776355"
+                  href="https://wa.me/3338740409?text=Hola%20Alicia%20quiero%20más%20información%20sobre%20tus%20servicios"
                   target="_blank"
                   className="text-brown-cta font-semibold hover:text-brown-darker transition duration-300 underline">
                   mandarme un whatsApp
                 </a>
               </p>
             </div>
-
             <form
               onSubmit={handleSubmit}
               className="max-w-xl mx-auto flex flex-col gap-6">
               <div className="relative my-6">
-                <input
-                  id="name"
-                  type="text"
+                <InputField
+                  label="Nombre"
                   name="name"
                   value={form.name}
                   onChange={handleChange}
-                  placeholder="your name"
-                  required
-                  className="peer relative h-10 w-full border-b border-slate-200 px-4 text-sm text-slate-500 placeholder-transparent outline-none transition-all autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-emerald-500 focus:outline-none invalid:focus:border-pink-500 focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
+                  onBlur={handleBlur}
+                  error={hasError("name")}
                 />
-                <label
-                  htmlFor="name"
-                  className="absolute left-2 -top-2 z-1 px-2 text-xs text-slate-400 transition-all before:absolute before:top-0 before:left-0 before:z-[-1] before:block before:h-full before:w-full before:bg-white before:transition-all peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-autofill:-top-2 peer-required:after:text-pink-500 peer-required:after:content-['\00a0*'] peer-invalid:text-pink-500 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-emerald-500 peer-invalid:peer-focus:text-pink-500 peer-disabled:cursor-not-allowed peer-disabled:text-slate-400 peer-disabled:before:bg-transparent">
-                  Nombre
-                </label>
-                <small className="absolute flex w-full cursor-text justify-between px-4 py-1 text-xs text-slate-400 transition peer-invalid:text-pink-500 peer-focus:cursor-default">
-                  <span>Text field with helper text</span>
-                  <span className="text-slate-500">1/10</span>
-                </small>
               </div>
               <div className="relative my-6">
-                <input
-                  id="email"
-                  type="email"
+                <InputField
+                  label="Correo electrónico"
                   name="email"
                   value={form.email}
                   onChange={handleChange}
-                  placeholder="your email"
-                  required
-                  className="peer relative h-10 w-full border-b border-slate-200 px-4 text-sm text-slate-500 placeholder-transparent outline-none transition-all autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-emerald-500 focus:outline-none invalid:focus:border-pink-500 focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
+                  onBlur={handleBlur}
+                  error={hasError("email")}
                 />
-                <label
-                  htmlFor="email"
-                  className="absolute left-2 -top-2 z-1 px-2 text-xs text-slate-400 transition-all before:absolute before:top-0 before:left-0 before:z-[-1] before:block before:h-full before:w-full before:bg-white before:transition-all peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-autofill:-top-2 peer-required:after:text-pink-500 peer-required:after:content-['\00a0*'] peer-invalid:text-pink-500 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-emerald-500 peer-invalid:peer-focus:text-pink-500 peer-disabled:cursor-not-allowed peer-disabled:text-slate-400 peer-disabled:before:bg-transparent">
-                  Correo electrónico
-                </label>
-                <small className="absolute flex w-full cursor-text justify-between px-4 py-1 text-xs text-slate-400 transition peer-invalid:text-pink-500 peer-focus:cursor-default">
-                  <span>Text field with helper text</span>
-                  <span className="text-slate-500">1/10</span>
-                </small>
               </div>
               <div className="relative my-6">
-                <textarea
-                  id="message"
+                <InputField
+                  label="Mensaje"
                   name="message"
                   value={form.message}
                   onChange={handleChange}
-                  placeholder="your name"
-                  required
-                  rows={5}
-                  className="peer relative h-10 w-full border-b border-slate-200 px-4 text-sm text-slate-500 placeholder-transparent outline-none transition-all autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-emerald-500 focus:outline-none invalid:focus:border-pink-500 focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
+                  onBlur={handleBlur}
+                  error={hasError("message")}
+                  textarea
                 />
-                <label
-                  htmlFor="message"
-                  className="absolute left-2 -top-2 z-1 px-2 text-xs text-slate-400 transition-all before:absolute before:top-0 before:left-0 before:z-[-1] before:block before:h-full before:w-full before:bg-white before:transition-all peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-autofill:-top-2 peer-required:after:text-pink-500 peer-required:after:content-['\00a0*'] peer-invalid:text-pink-500 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-emerald-500 peer-invalid:peer-focus:text-pink-500 peer-disabled:cursor-not-allowed peer-disabled:text-slate-400 peer-disabled:before:bg-transparent">
-                  Mensaje
-                </label>
-                <small className="absolute flex w-full cursor-text justify-between px-4 py-1 text-xs text-slate-400 transition peer-invalid:text-pink-500 peer-focus:cursor-default">
-                  <span>Text field with helper text</span>
-                  <span className="text-slate-500">1/10</span>
-                </small>
               </div>
-
-              <button type="submit">Enviar</button>
+              <button
+                disabled={loading}
+                className="m-auto w-fit bg-brown-cta rounded hover:bg-brown-darker transition duration-300 text-white py-3 px-10 text-lg"
+                type="submit">
+                {loading ? "Enviando..." : "Enviar"}
+              </button>
             </form>
           </div>
         </div>

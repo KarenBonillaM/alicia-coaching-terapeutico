@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Steps() {
   return (
-    <section className=" bg-beige-steps grid justify-center py-10">
+    <section className=" bg-beige-steps grid justify-center pt-10 pb-20">
       <div className="grid grid-cols-1 justify-items-center md:grid-cols-2 md:justify-items-start grid-rows-3 h-screen py-20">
         <div className="w-3/5 md:w-full flex items-center col-start-2 border-l-3 border-light-beige relative pb-20">
           <div className="absolute -left-10 top-0 bg-light-beige rounded-full py-6 px-8">
